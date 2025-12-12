@@ -55,6 +55,18 @@ int main()
     person.name = "Alice";
     person.age = 30;
 
+    bufsd::Serializer person_serializer;
+
+    person_serializer.push_object(person);
+
+    std::vector<unsigned char> serialized_person = person_serializer.get_buffer();
+    std::cout << "Serialized Person using push_object: ";
+    for (unsigned char byte : serialized_person)
+    {
+        std::cout << std::hex << static_cast<int>(byte) << " ";
+    }
+    std::cout << std::dec << std::endl;
+
     std::vector<unsigned char> person_buffer = person.serialize();
     std::cout << "Serialized Person: " << person.to_string() << std::endl
               << "Person Name: " << person.name
