@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(bufsd VERSION 1.0.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
@@ -14,6 +14,10 @@ list(FILTER lib_src_files EXCLUDE REGEX ".*main\\.cpp$")
 
 # Create library
 add_library(${PROJECT_NAME} STATIC ${lib_src_files})
+add_library(bufsd::bufsd ALIAS ${PROJECT_NAME})
+
+# Set C++ standard for the library
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
 # Include directories
 target_include_directories(${PROJECT_NAME} 

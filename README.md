@@ -1,6 +1,6 @@
 # bufsd - Buffer Serialization/Deserialization Library
 
-A modern C++20 header-mostly library for efficient binary data serialization and deserialization with support for big-endian and little-endian byte ordering.
+A modern C++17 header-mostly library for efficient binary data serialization and deserialization with support for big-endian and little-endian byte ordering.
 
 ## Features
 
@@ -14,7 +14,7 @@ A modern C++20 header-mostly library for efficient binary data serialization and
 
 ## Requirements
 
-- C++20 compatible compiler (GCC 10+, Clang 10+, MSVC 2019+)
+- C++17 compatible compiler (GCC 7+, Clang 5+, MSVC 2017+)
 - CMake 3.20 or higher
 
 ## Installation
@@ -45,7 +45,7 @@ git submodule add https://github.com/GustaMonteiro/bufsd.git external/bufsd
 Then in your CMakeLists.txt:
 ```cmake
 add_subdirectory(external/bufsd)
-target_link_libraries(your_target PRIVATE bufsd)
+target_link_libraries(your_target PRIVATE bufsd::bufsd)
 ```
 
 ## Quick Start
