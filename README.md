@@ -60,7 +60,7 @@ target_link_libraries(your_target PRIVATE bufsd)
 bufsd::Serializer serializer;
 
 // Add values with explicit endianness
-serializer.push_16_big_endian(0x1234)
+serializer.push_16_big_endian(static_cast<unsigned short>(0x1234))
           .push_32_little_endian(0x56789abc)
           .push_64_big_endian(0xdef0123456789abc);
 

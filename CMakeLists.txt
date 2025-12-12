@@ -9,7 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 option(BUFSD_BUILD_EXAMPLES "Build example programs" OFF)
 
 # Library sources (only implementation files, excluding main.cpp)
-file(GLOB_RECURSE lib_src_files CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/src/*.cpp)
+file(GLOB_RECURSE lib_src_files CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 list(FILTER lib_src_files EXCLUDE REGEX ".*main\\.cpp$")
 
 # Create library
@@ -18,7 +18,7 @@ add_library(${PROJECT_NAME} STATIC ${lib_src_files})
 # Include directories
 target_include_directories(${PROJECT_NAME} 
     PUBLIC 
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
 )
 
